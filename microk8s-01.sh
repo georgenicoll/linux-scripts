@@ -5,6 +5,7 @@ sudo snap install microk8s --classic --channel=latest
 echo "--> Setup groups"
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
+su - $USER
 
 echo "--> Waiting for microk8s to be ready"
 microk8s status --wait-ready

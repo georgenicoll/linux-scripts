@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gn-ubuntu
+  labels:
+    app: gn-ubuntu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gn-ubuntu
+  template:
+    metadata:
+      labels:
+        app: gn-ubuntu
+      annotations:
+    spec:
+      containers:
+      - name: ubuntu
+        image: georgenicoll/gn-ubuntu
+        command: ["sleep","1000000"]
+        ports:
+        - containerPort: 80    

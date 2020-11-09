@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingtest
+  labels:
+    app: pingtest
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: pingtest
+  template:
+    metadata:
+      labels:
+        app: pingtest
+      annotations:
+    spec:
+      containers:
+      - name: pingtest
+        image: busybox
+        command: ["sleep","infinity"]
+        ports:
+        - containerPort: 1234
